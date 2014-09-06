@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * @author Nicholas Moreles
  * 
  * Time limit: 	 3.000s
- * Running time: 2.075s
+ * Running time: 1.949s
  * 
  * Approach: Create an adjacency matrix as the values are read in. When asked to find all
  * inaccessible vertices for a given vertex, perform a depth-first search and update a visited
@@ -58,12 +58,7 @@ public class Vertex280 {
 	private static void printInaccessible(final boolean[][] graph, final int startVertex) {
 		final boolean[] visited = new boolean[graph.length];
 		
-		// code necessarily duplicated here to avoid visiting 'vertex' in the first call
-		for (int endVertex = 1; endVertex <= graph.length - 1; endVertex++) {
-			if (graph[startVertex][endVertex]) {
-				visit(endVertex, graph, visited);
-			}
-		}
+		visit(startVertex, graph, visited);
 		
 		final List<Integer> inaccessibleVertices = new ArrayList<>();
 		for (int i = 1; i <= graph.length - 1; i++) {
@@ -81,12 +76,10 @@ public class Vertex280 {
 	
 	// depth-first search to find all connected vertices
 	private static void visit(final int startVertex, final boolean[][] graph, final boolean[] visited) {
-		if (!visited[startVertex]) {
-			visited[startVertex] = true;
-			for (int endVertex = 1; endVertex <= graph.length - 1; endVertex++) {
-				if (graph[startVertex][endVertex]) {
-					visit(endVertex, graph, visited);
-				}
+		for (int endVertex = 1; endVertex <= graph.length - 1; endVertex++) {
+			if (graph[startVertex][endVertex] && !visited[endVertex]) {
+				visited[endVertex] = true;
+				visit(endVertex, graph, visited);
 			}
 		}
 	}
