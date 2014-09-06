@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * UVa #357 - Vertex
+ * UVa #357 - Let Me Count The Ways 
  * @author Nicholas Moreles
  * 
  * Time limit: 	 3.000s
