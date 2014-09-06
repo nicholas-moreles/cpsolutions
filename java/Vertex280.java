@@ -1,15 +1,18 @@
 package com.nicholasmoreles.uva_java;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * UVa #280 - Vertex
  * @author Nicholas Moreles
  * 
  * Time limit: 	 3.000s
- * Running time: 2.689s
+ * Running time: 2.075s
  * 
  * Approach: Create an adjacency matrix as the values are read in. When asked to find all
  * inaccessible vertices for a given vertex, perform a depth-first search and update a visited
@@ -18,34 +21,37 @@ import java.util.Scanner;
  */
 public class Vertex280 {
 	
-	public static void main(String[] args) {
-		final Scanner in = new Scanner(System.in);
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int numVertices;
-		while ((numVertices = in.nextInt()) != 0) {
-			solve(in, createGraph(in, numVertices));
+		while ((numVertices = Integer.parseInt(br.readLine())) != 0) {
+			solve(br, createGraph(br, numVertices));
 		}
 		
-		in.close();
+		br.close();
 	}
 
-	private static boolean[][] createGraph(final Scanner in, final int numVertices) {
+	private static boolean[][] createGraph(final BufferedReader br, final int numVertices) throws NumberFormatException, IOException {
 		final boolean[][] graph = new boolean[numVertices + 1][numVertices + 1]; // adjacency matrix
 		
 		int startVertex;
-		while ((startVertex = in.nextInt()) != 0) {
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		while ((startVertex = Integer.parseInt(st.nextToken())) != 0) {
 			int endVertex;
-			while ((endVertex = in.nextInt()) != 0) {
+			while ((endVertex = Integer.parseInt(st.nextToken())) != 0) {
 				graph[startVertex][endVertex] = true;
 			}
+			st = new StringTokenizer(br.readLine());
 		}
 		return graph;
 	}
 	
-	private static void solve(final Scanner in, final boolean[][] graph) {
-		final int numToSolve = in.nextInt();
+	private static void solve(final BufferedReader br, final boolean[][] graph) throws IOException {
+		final StringTokenizer st = new StringTokenizer(br.readLine());
+		final int numToSolve = Integer.parseInt(st.nextToken());
 		for (int i = 0; i < numToSolve; i++) {
-			printInaccessible(graph, in.nextInt());
+			printInaccessible(graph, Integer.parseInt(st.nextToken()));
 		}
 	}
 	
