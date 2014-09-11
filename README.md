@@ -1,4 +1,4 @@
-uva
+Competitive Programming Solutions
 ===
 
-Solutions to UVa Online Judge coding problems
+Detailed explanations of all solutions can be found at http://nicholasmoreles.com/cpsolutions/
