@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ * @author Nicholas Moreles
+ *
+ * Details: http://nicholasmoreles.com/cpsolutions/the-wedding-uva-10662/
+ */
 public class TheWedding10662 {
 	
 	public static void main(String[] args) throws IOException {
