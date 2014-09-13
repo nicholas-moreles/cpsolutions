@@ -1,4 +1,4 @@
-package com.nicholasmoreles.uva_java;
+package com.nicholasmoreles.cpsolutions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
