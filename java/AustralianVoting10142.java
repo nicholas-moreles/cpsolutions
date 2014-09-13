@@ -11,9 +11,13 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/**
+ * @author Nicholas Moreles
+ *
+ * Details: http://nicholasmoreles.com/cpsolutions/australian-voting-uva-10142/
+ */
 public class AustralianVoting10142 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//final BufferedReader br = new BufferedReader(new FileReader("aussievoting.txt"));
 		final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		final int numTests = Integer.parseInt(br.readLine());
 		br.readLine(); // blank line
