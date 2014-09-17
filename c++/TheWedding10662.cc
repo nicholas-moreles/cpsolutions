@@ -28,14 +28,16 @@ void printLowestCost(MATRIX& travel_agencies, MATRIX& restaurants, MATRIX& hotel
 
   for (int i = 0; i < travel_agencies.size(); i++) {
     for (int j = 0; j < restaurants.size(); j++) {
-      for (int k = 0; k < hotels.size(); k++) {
-        if (travel_agencies[i][j+1] == 0 && restaurants[j][k+1] == 0 && hotels[k][i+1] == 0) {
-          const int cost = travel_agencies[i][0] + restaurants[j][0] + hotels[k][0];
-          if (cost < lowest_cost) {
-            lowest_cost = cost;
-            best_travel_agency = i;
-            best_restaurant = j;
-            best_hotel = k;
+      if (travel_agencies[i][j+1] == 0) {
+        for (int k = 0; k < hotels.size(); k++) {
+          if (restaurants[j][k+1] == 0 && hotels[k][i+1] == 0) {
+            const int cost = travel_agencies[i][0] + restaurants[j][0] + hotels[k][0];
+            if (cost < lowest_cost) {
+              lowest_cost = cost;
+              best_travel_agency = i;
+              best_restaurant = j;
+              best_hotel = k;
+            }
           }
         }
       }
